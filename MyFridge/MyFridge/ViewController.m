@@ -10,10 +10,8 @@
 #import "FoodObject.h"
 #import "PickerViewController.h"
 
-
-
-@interface ViewController ()
-
+@interface ViewController () {
+}
 @end
 
 @implementation ViewController{
@@ -51,33 +49,23 @@
 }
 
 
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _listOfFood.count;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifier = @"Cell";
-    
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    
-    return cell;
-}
-
-
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
     
     PickerViewController *source = [segue sourceViewController];
     
     FoodObject *item = source.food;
-    
+    NSLog(@"returning from segue");
     
     if (item != nil) {
         [self.listOfFood addObject:item];
     }
     if (item != nil){
         [self->_collectionData addObject:item];
+        [self.collectionView reloadData];
+        NSLog(@"Item added to list.");
     }
+
+
 }
 
 #pragma mark Collection View Methods
@@ -86,13 +74,16 @@
     // only one collection (food in fridge)
     return 1;
 }
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+
     return [_collectionData count];
+    //return _listOfFood.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 
-    // creates new cell referencing FoodCell created in storyboard
+
     UICollectionViewCell *foodCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FoodCell" forIndexPath:indexPath];
 
     UILabel *label = (UILabel *)[foodCell viewWithTag:100];
@@ -103,6 +94,5 @@
 
     return foodCell;
 }
-
 
 @end
