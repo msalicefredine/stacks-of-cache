@@ -17,6 +17,36 @@
             endingLineNumber = "12"
             landmarkName = "picker"
             landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[PickerViewController picker]"
+                  moduleName = "MyFridge"
+                  urlString = "file:///Users/alicefredine/Documents/Projects/nwHacks/MyFridge/MyFridge/MyFridge/PickerViewController.h"
+                  timestampString = "448048564.495359"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[PickerViewController setPicker:]"
+                  moduleName = "MyFridge"
+                  urlString = "file:///Users/alicefredine/Documents/Projects/nwHacks/MyFridge/MyFridge/MyFridge/PickerViewController.h"
+                  timestampString = "448048564.495634"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

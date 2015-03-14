@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *typeField;
 @property (weak, nonatomic) IBOutlet UIDatePicker *dateField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveFood;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textFieldHorizontal;
 
 
 @end
