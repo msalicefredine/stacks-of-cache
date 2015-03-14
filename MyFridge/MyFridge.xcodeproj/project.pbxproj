@@ -14,6 +14,7 @@
 		5A1695751AB3DD9D0046A4E3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A1695741AB3DD9D0046A4E3 /* Images.xcassets */; };
 		5A1695781AB3DD9D0046A4E3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A1695761AB3DD9D0046A4E3 /* LaunchScreen.xib */; };
 		5A1695841AB3DD9D0046A4E3 /* MyFridgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1695831AB3DD9D0046A4E3 /* MyFridgeTests.m */; };
+		5A16958F1AB3EFDE0046A4E3 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A16958E1AB3EFDE0046A4E3 /* PickerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		5A16957D1AB3DD9D0046A4E3 /* MyFridgeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyFridgeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A1695821AB3DD9D0046A4E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A1695831AB3DD9D0046A4E3 /* MyFridgeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyFridgeTests.m; sourceTree = "<group>"; };
+		5A16958D1AB3EFDE0046A4E3 /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
+		5A16958E1AB3EFDE0046A4E3 /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				5A1695741AB3DD9D0046A4E3 /* Images.xcassets */,
 				5A1695761AB3DD9D0046A4E3 /* LaunchScreen.xib */,
 				5A1695671AB3DD9D0046A4E3 /* Supporting Files */,
+				5A16958D1AB3EFDE0046A4E3 /* PickerViewController.h */,
+				5A16958E1AB3EFDE0046A4E3 /* PickerViewController.m */,
 			);
 			path = MyFridge;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 			files = (
 				5A1695701AB3DD9D0046A4E3 /* ViewController.m in Sources */,
 				5A16956D1AB3DD9D0046A4E3 /* AppDelegate.m in Sources */,
+				5A16958F1AB3EFDE0046A4E3 /* PickerViewController.m in Sources */,
 				5A16956A1AB3DD9D0046A4E3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="R5m-sl-Nz7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--My Food-->
@@ -36,6 +37,7 @@
                                         </view>
                                         <color key="backgroundColor" red="0.023578893779999999" green="0.01059245319" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <size key="customSize" width="50" height="50"/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kV6-tA-QkP">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -91,7 +93,7 @@
         <!--Add Food-->
         <scene sceneID="Lfq-lN-RJZ">
             <objects>
-                <viewController id="JcQ-Ri-Y2E" sceneMemberID="viewController">
+                <viewController id="JcQ-Ri-Y2E" customClass="PickerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SY4-Dj-Cpz"/>
                         <viewControllerLayoutGuide type="bottom" id="X8M-fU-6jv"/>
@@ -99,12 +101,61 @@
                     <view key="view" contentMode="scaleToFill" id="TeV-Dp-bT0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleAspectFit" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lph-bq-O4x">
+                                <rect key="frame" x="21" y="51" width="559" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="JcQ-Ri-Y2E" id="Pji-fa-gj8"/>
+                                    <outlet property="delegate" destination="JcQ-Ri-Y2E" id="amH-ea-HlJ"/>
+                                </connections>
+                            </pickerView>
+                            <datePicker contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bM3-Th-vrj">
+                                <rect key="frame" x="0.0" y="228" width="600" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="448006769.43093801">
+                                    <!--2015-03-14 06:19:29 +0000-->
+                                </date>
+                            </datePicker>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Food Name..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eUP-Ps-gOq">
+                                <rect key="frame" x="135" y="162" width="331" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Expiration Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQU-1U-mlB">
+                                <rect key="frame" x="232" y="263" width="136" height="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Food Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3P-aY-o8D">
+                                <rect key="frame" x="6" y="144" width="87" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="87" id="WJD-Tq-mJU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="eUP-Ps-gOq" secondAttribute="centerX" id="1kq-i5-h7p"/>
+                            <constraint firstAttribute="centerX" secondItem="xQU-1U-mlB" secondAttribute="centerX" id="CHQ-hc-4kJ"/>
+                            <constraint firstItem="bM3-Th-vrj" firstAttribute="top" secondItem="eUP-Ps-gOq" secondAttribute="bottom" constant="36" id="Xz5-C5-3jj"/>
+                            <constraint firstItem="xQU-1U-mlB" firstAttribute="top" secondItem="Lph-bq-O4x" secondAttribute="bottom" constant="50" id="cES-4T-fFH"/>
+                            <constraint firstItem="R3P-aY-o8D" firstAttribute="leading" secondItem="TeV-Dp-bT0" secondAttribute="leadingMargin" constant="-10" id="dOV-oX-q88"/>
+                            <constraint firstItem="eUP-Ps-gOq" firstAttribute="top" secondItem="Lph-bq-O4x" secondAttribute="bottom" id="fZA-OZ-l2d"/>
+                            <constraint firstAttribute="centerX" secondItem="Lph-bq-O4x" secondAttribute="centerX" id="ga8-Ad-hXy"/>
+                            <constraint firstItem="Lph-bq-O4x" firstAttribute="top" secondItem="TeV-Dp-bT0" secondAttribute="topMargin" constant="51" id="wrj-Qd-zYd"/>
+                            <constraint firstAttribute="centerX" secondItem="bM3-Th-vrj" secondAttribute="centerX" id="zSv-S8-E9z"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Food" id="s7w-B0-aGo"/>
+                    <navigationItem key="navigationItem" title="Add Food" id="s7w-B0-aGo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="VyW-ir-MRk"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SEp-E7-9Bn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="697" y="221"/>
+            <point key="canvasLocation" x="853" y="230"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AUK-vP-gze">
