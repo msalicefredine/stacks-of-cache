@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "FoodObject.h"
+#import "PickerViewController.h"
 
 @interface ViewController ()
 
@@ -16,12 +18,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _listOfFood = [[NSMutableArray array] init];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+    
+    PickerViewController *source = [segue sourceViewController];
+    
+    FoodObject *item = source.food;
+    
+    if (item != nil) {
+        [self.listOfFood addObject:item];
+    }
 }
 
 @end

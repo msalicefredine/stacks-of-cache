@@ -11,6 +11,11 @@
 @interface PickerViewController ()
 
 @property (strong, nonatomic) NSArray *array;
+@property (weak, nonatomic) IBOutlet UITextField *foodField;
+@property (weak, nonatomic) IBOutlet UIPickerView *typeField;
+@property (weak, nonatomic) IBOutlet UIDatePicker *dateField;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveFood;
+
 
 @end
 
@@ -54,6 +59,25 @@
     NSString *title = [[NSString alloc] initWithFormat:@"Food Type: %@", select];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message: @"Yay!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
+    
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if (sender != self.saveFood) return;
+    if (self.foodField.text.length > 0) {
+        self.food = [[FoodObject alloc] init];
+        self.food.type = self.typeField.textInputContextIdentifier;
+        self.food.name = self.foodField.text;
+        self.food.expiry = self.dateField.date;
+        
+    }
+
+    
     
 }
 
