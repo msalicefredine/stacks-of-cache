@@ -5,13 +5,11 @@
 //  Created by Alice Fredine on 2015-03-14.
 //  Copyright (c) 2015 Alice Fredine. All rights reserved.
 //
-
 #import "DatePickerViewController.h"
 
 @interface DatePickerViewController ()
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
-
 
 @end
 
@@ -35,8 +33,17 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if (sender != self.saveButton) return;
-    self.expiryDate = _datePicker.date;
+    self.date = self.datePicker.date;
     
+    if (self.date == [NSDate date] || [[NSDate date] earlierDate:self.date] == self.date) {
+        self.date = nil;
+        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Error!"
+                                                           message:@"Expiry date must be at least one day in advance."
+                                                          delegate:self
+                                                 cancelButtonTitle:@"OK"
+                                                 otherButtonTitles:nil];
+        [theAlert show];
+    }
 }
 
 

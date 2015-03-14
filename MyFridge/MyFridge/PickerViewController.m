@@ -1,21 +1,15 @@
-//
-//  PickerViewController.m
-//  MyFridge
-//
-//  Created by Alice Fredine on 2015-03-13.
-//  Copyright (c) 2015 Alice Fredine. All rights reserved.
-//
-
 #import "PickerViewController.h"
+#import "DatePickerViewController.h"
 
 @interface PickerViewController ()
 
 @property (strong, nonatomic) NSArray *array;
-@property (weak, nonatomic) IBOutlet UITextField *foodField;
 @property (weak, nonatomic) IBOutlet UIPickerView *typeField;
-@property (weak, nonatomic) IBOutlet UIDatePicker *dateField;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveFood;
+@property (weak, nonatomic) IBOutlet UITextField *foodField;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textFieldHorizontal;
+@property (weak, nonatomic) NSDate *expDate;
 
 
 @end
@@ -55,38 +49,43 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)buttonPressed:(id)sender {
-    NSString *select = [_array objectAtIndex:[_picker selectedRowInComponent:0]];
-    NSString *title = [[NSString alloc] initWithFormat:@"Food Type: %@", select];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message: @"Yay!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
-    
-}
-
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if (sender != self.saveFood) return;
+    NSInteger row = [_typeField selectedRowInComponent:0];
+    if (sender != self.saveButton) return;
     if (self.foodField.text.length > 0) {
         self.food = [[FoodObject alloc] init];
-        self.food.type = self.typeField.textInputContextIdentifier;
         self.food.name = self.foodField.text;
-        self.food.expiry = self.dateField.date;
         
-    }
-    if (self.food.type == nil || self.food.name == nil || self.food.expiry == nil) {
-        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Error!"
-                                                       message:@"Could not be saved."
-                                                      delegate:self
-                                             cancelButtonTitle:@"OK"
-                                             otherButtonTitles:nil];
-        [theAlert show];
-
+        self.food.type = [_array objectAtIndex:row];
+        self.food.expiry = self.expDate;
     }
     
+    if (self.food.name == nil || self.food.type == nil) {
+        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Error!"
+                                                           message:@"Could not be saved."
+                                                          delegate:self
+                                                 cancelButtonTitle:@"OK"
+                                                 otherButtonTitles:nil];
+        [theAlert show];
+        
+    }
+}
+
+- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+    
+    DatePickerViewController *source = [segue sourceViewController];
+    
+    NSDate *item = source.date;
+    
+    
+    if (item != nil) {
+        self.expDate = item;
+    }
     
 }
 

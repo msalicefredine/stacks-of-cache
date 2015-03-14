@@ -9,7 +9,6 @@
         <!--My Food-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -59,6 +58,7 @@
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-125" y="226"/>
         </scene>
@@ -93,13 +93,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleAspectFit" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lph-bq-O4x">
-                                <rect key="frame" x="16" y="20" width="568" height="162"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="JcQ-Ri-Y2E" id="86z-9b-KSr"/>
-                                    <outlet property="delegate" destination="JcQ-Ri-Y2E" id="Ygt-O0-QDU"/>
-                                </connections>
-                            </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Food Name..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eUP-Ps-gOq">
                                 <rect key="frame" x="21" y="285" width="559" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -129,6 +122,13 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <pickerView contentMode="scaleAspectFit" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lph-bq-O4x">
+                                <rect key="frame" x="16" y="20" width="568" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="JcQ-Ri-Y2E" id="86z-9b-KSr"/>
+                                    <outlet property="delegate" destination="JcQ-Ri-Y2E" id="Ygt-O0-QDU"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -154,8 +154,6 @@
                     <connections>
                         <outlet property="dateField" destination="bM3-Th-vrj" id="OhN-NJ-8yc"/>
                         <outlet property="foodField" destination="eUP-Ps-gOq" id="A5g-dL-oPR"/>
-                        <outlet property="picker" destination="Lph-bq-O4x" id="cke-18-PyY"/>
-                        <outlet property="saveFood" destination="VyW-ir-MRk" id="Y7S-71-RQN"/>
                         <outlet property="textFieldHorizontal" destination="55e-41-dLH" id="F7h-gG-HS3"/>
                         <outlet property="typeField" destination="Lph-bq-O4x" id="LGe-mU-rTZ"/>
                     </connections>

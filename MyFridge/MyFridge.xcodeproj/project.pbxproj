@@ -16,7 +16,6 @@
 		5A1695841AB3DD9D0046A4E3 /* MyFridgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1695831AB3DD9D0046A4E3 /* MyFridgeTests.m */; };
 		5A16958F1AB3EFDE0046A4E3 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A16958E1AB3EFDE0046A4E3 /* PickerViewController.m */; };
 		5A1695951AB419E10046A4E3 /* FoodObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1695941AB419E10046A4E3 /* FoodObject.m */; };
-		5A1695971AB42E2C0046A4E3 /* programmer.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5A1695961AB42E2C0046A4E3 /* programmer.jpeg */; };
 		5A16959A1AB4B19A0046A4E3 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1695991AB4B19A0046A4E3 /* DatePickerViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +47,6 @@
 		5A16958E1AB3EFDE0046A4E3 /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
 		5A1695931AB419E10046A4E3 /* FoodObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodObject.h; sourceTree = "<group>"; };
 		5A1695941AB419E10046A4E3 /* FoodObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodObject.m; sourceTree = "<group>"; };
-		5A1695961AB42E2C0046A4E3 /* programmer.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = programmer.jpeg; path = ../../../../../Desktop/programmer.jpeg; sourceTree = "<group>"; };
 		5A1695981AB4B19A0046A4E3 /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
 		5A1695991AB4B19A0046A4E3 /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,7 +75,6 @@
 				5A1695661AB3DD9D0046A4E3 /* MyFridge */,
 				5A1695801AB3DD9D0046A4E3 /* MyFridgeTests */,
 				5A1695651AB3DD9D0046A4E3 /* Products */,
-				5A1695961AB42E2C0046A4E3 /* programmer.jpeg */,
 			);
 			sourceTree = "<group>";
 		};
@@ -222,7 +219,6 @@
 				5A1695731AB3DD9D0046A4E3 /* Main.storyboard in Resources */,
 				5A1695781AB3DD9D0046A4E3 /* LaunchScreen.xib in Resources */,
 				5A1695751AB3DD9D0046A4E3 /* Images.xcassets in Resources */,
-				5A1695971AB42E2C0046A4E3 /* programmer.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

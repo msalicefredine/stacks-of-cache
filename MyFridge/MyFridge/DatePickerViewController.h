@@ -9,7 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DatePickerViewController : UIViewController
-
-@property (weak, nonatomic) NSDate *expiryDate;
-
+@property NSDate *date;
 @end

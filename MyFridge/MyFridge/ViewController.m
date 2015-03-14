@@ -10,7 +10,7 @@
 #import "FoodObject.h"
 #import "PickerViewController.h"
 
-@import UILocalNotification;
+@import UIKit;
 
 @interface ViewController () {
 }
