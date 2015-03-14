@@ -10,6 +10,8 @@
 #import "FoodObject.h"
 #import "PickerViewController.h"
 
+@import UIKit;
+
 @interface ViewController () {
 }
 @end
@@ -53,14 +55,13 @@
         [self.listOfFood addObject:item];
 		
 		// I think we might have to do something with but i have no idea what
-		UIUserNotificationSettings * currSettings = [[UIApplication application] currentUserNotificationSettings];
+		UIUserNotificationSettings * currSettings = [[UIApplication sharedApplication] currentUserNotificationSettings];
 		
-		UILocalNotification notification = [[UILocalNotification alloc] init];
+		UILocalNotification *notification = [[UILocalNotification alloc] init];
 		notification.fireDate = item.expiry;
 		notification.alertBody = @"hi";
-		notification.alertTitle = @"yogurt";
-		item.alert = &notification;
-		[[UIApplication application] scheduleLocalNotification: notification];
+		item.alert = notification;
+		[[UIApplication sharedApplication] scheduleLocalNotification: notification];
 		// [[UIApplication application] presentLocalNotificationNow: notification];
 		
 		

@@ -23,7 +23,7 @@
 	UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
 
 	UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
-	[[UIApplication application] registerUserNotificationSettings:mySettings];
+	[[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
 	
     return YES;
 }
@@ -60,7 +60,6 @@
 
     if ([identifier isEqualToString: @"ACCEPT_IDENTIFIER"]) {
 		NSLog(@"Accept was clicked apparently");
-        [self handleAcceptActionWithNotification:notification];
 
     }
 
