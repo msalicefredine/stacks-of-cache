@@ -9,7 +9,6 @@
         <!--My Food-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -59,6 +58,7 @@
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-125" y="226"/>
         </scene>
@@ -104,6 +104,9 @@
                                 <rect key="frame" x="21" y="285" width="559" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="JcQ-Ri-Y2E" id="b5k-uG-rjs"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4As-dm-3bK">
                                 <rect key="frame" x="21" y="116" width="85.5" height="20.5"/>
@@ -153,9 +156,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dateField" destination="bM3-Th-vrj" id="OhN-NJ-8yc"/>
-                        <outlet property="saveFood" destination="VyW-ir-MRk" id="FFV-dB-PKm"/>
+                        <outlet property="foodField" destination="eUP-Ps-gOq" id="bEr-17-1ww"/>
+                        <outlet property="saveButton" destination="VyW-ir-MRk" id="3rQ-m5-XbI"/>
                         <outlet property="textFieldHorizontal" destination="55e-41-dLH" id="F7h-gG-HS3"/>
-                        <outlet property="typeField" destination="Lph-bq-O4x" id="JiG-rv-ziP"/>
+                        <outlet property="typeField" destination="Lph-bq-O4x" id="WDw-BO-aVA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SEp-E7-9Bn" userLabel="First Responder" sceneMemberID="firstResponder"/>
