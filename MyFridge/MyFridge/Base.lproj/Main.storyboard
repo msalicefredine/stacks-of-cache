@@ -69,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="-1" y="221"/>
         </scene>
-        <!--View Controller-->
+        <!--My Stats-->
         <scene sceneID="P48-7W-jIP">
             <objects>
                 <viewController id="bOd-WA-lXR" sceneMemberID="viewController">
@@ -82,12 +82,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="My Stats" id="AfY-5h-YgB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbS-W3-xUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1" y="964"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Food-->
         <scene sceneID="Lfq-lN-RJZ">
             <objects>
                 <viewController id="JcQ-Ri-Y2E" sceneMemberID="viewController">
@@ -98,12 +99,8 @@
                     <view key="view" contentMode="scaleToFill" id="TeV-Dp-bT0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jk1-sz-C46">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                            </navigationBar>
-                        </subviews>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Food" id="s7w-B0-aGo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SEp-E7-9Bn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
