@@ -10,7 +10,7 @@
 #import "FoodObject.h"
 
 @interface PickerViewController : UIViewController < UIPickerViewDelegate, UIPickerViewDataSource >
-@property (strong, nonatomic) IBOutlet UIPickerView *picker;
+@property (weak, nonatomic) IBOutlet UIPickerView *picker;
 - (IBAction)buttonPressed:(id)sender;
 @property FoodObject *food;
 @end

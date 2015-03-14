@@ -7,15 +7,17 @@
 //
 
 #import "PickerViewController.h"
+#import "DatePickerViewController.h"
 
 @interface PickerViewController ()
 
 @property (strong, nonatomic) NSArray *array;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveFood;
 @property (weak, nonatomic) IBOutlet UITextField *foodField;
 @property (weak, nonatomic) IBOutlet UIPickerView *typeField;
-@property (weak, nonatomic) IBOutlet UIDatePicker *dateField;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveFood;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textFieldHorizontal;
+@property (weak, nonatomic) NSDate *date;
 
 
 @end
@@ -28,6 +30,7 @@
     NSArray *data = [[NSArray alloc] initWithObjects: @"Vegetable", @"Fruit", @"Meat", @"Dairy", nil];
     
     self.array = data;
+    self.food.expiry = nil;
     
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -72,12 +75,14 @@
     if (sender != self.saveFood) return;
     if (self.foodField.text.length > 0) {
         self.food = [[FoodObject alloc] init];
-        self.food.type = self.typeField.textInputContextIdentifier;
+        self.food.type = self.picker.textInputContextIdentifier;
         self.food.name = self.foodField.text;
-        self.food.expiry = self.dateField.date;
+        self.food.expiry = self.date;
         
     }
-    if (self.food.type == nil || self.food.name == nil || self.food.expiry == nil) {
+    if (self.food.name == nil || self.food.type == nil) {
+        NSLog(@"Food type: %@", self.food.type);
+        self.food = nil;
         UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Error!"
                                                        message:@"Could not be saved."
                                                       delegate:self
@@ -89,5 +94,18 @@
     
     
 }
+
+- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+    
+    DatePickerViewController *source = [segue sourceViewController];
+    
+    NSDate *item = source.expiryDate;
+    
+    if (item != nil) {
+        self.date = item;
+    }
+    
+}
+
 
 @end
