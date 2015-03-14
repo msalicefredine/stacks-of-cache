@@ -74,9 +74,10 @@
         [theAlert show];
         
     }
+        assert(self.food != nil);
 }
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+- (IBAction)unwindToPickerView:(UIStoryboardSegue *)segue {
     
     DatePickerViewController *source = [segue sourceViewController];
     
