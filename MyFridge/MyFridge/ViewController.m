@@ -25,9 +25,8 @@
     
     _listOfFood = [[NSMutableArray array] init];
     _collectionData = [[NSMutableArray array] init];
-    //_collectionData = _listOfFood;
-
-    [self loadInitialData];
+    [self.collectionView reloadData];
+    //[self loadInitialData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,9 +57,11 @@
     NSLog(@"returning from segue");
     
     if (item != nil) {
-        [self.listOfFood addObject:item];
-        NSLog(@"This ran");
+        [self->_collectionData addObject:item];
+        //[self.collectionView reloadData];
+        NSLog(@"Item added to list.");
     }
+    
     else if (source.isSaved){
     UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Error!"
                                                        message:@"Could not be saved."
@@ -68,11 +69,6 @@
                                              cancelButtonTitle:@"OK"
                                              otherButtonTitles:nil];
     [theAlert show];
-    }
-    if (item != nil){
-        [self->_collectionData addObject:item];
-        [self.collectionView reloadData];
-        NSLog(@"Item added to list.");
     }
 
 
@@ -88,7 +84,6 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 
     return [_collectionData count];
-    //return _listOfFood.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
