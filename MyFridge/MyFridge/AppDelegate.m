@@ -22,8 +22,10 @@
 	
 	UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
 
-	UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
-	[[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+	    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+		NSLog(@"Trying to register selection");
+    [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
 	
     return YES;
 }
