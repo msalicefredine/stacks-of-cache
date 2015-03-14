@@ -166,10 +166,10 @@
             </objects>
             <point key="canvasLocation" x="516" y="226"/>
         </scene>
-        <!--View Controller-->
+        <!--Date Picker View Controller-->
         <scene sceneID="k8j-Ya-5vZ">
             <objects>
-                <viewController id="ZBf-YU-99x" sceneMemberID="viewController">
+                <viewController id="ZBf-YU-99x" customClass="DatePickerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RjE-6d-A8g"/>
                         <viewControllerLayoutGuide type="bottom" id="fDe-R6-7g3"/>
@@ -210,6 +210,11 @@
                             <constraint firstItem="fDe-R6-7g3" firstAttribute="top" secondItem="HcR-6S-4We" secondAttribute="bottom" constant="20" id="kjl-7n-OPL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="bM3-Th-vrj" id="Y1G-bI-rdl"/>
+                        <outlet property="saveButto" destination="HcR-6S-4We" id="yhK-st-HDf"/>
+                        <outlet property="saveButton" destination="HcR-6S-4We" id="SIW-JE-znD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5o-9L-2gO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
