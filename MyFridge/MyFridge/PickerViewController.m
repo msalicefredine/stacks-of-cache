@@ -76,7 +76,15 @@
         self.food.expiry = self.dateField.date;
         
     }
+    if (self.food.type == nil || self.food.name == nil || self.food.expiry == nil) {
+        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Error!"
+                                                       message:@"Could not be saved."
+                                                      delegate:self
+                                             cancelButtonTitle:@"OK"
+                                             otherButtonTitles:nil];
+        [theAlert show];
 
+    }
     
     
 }

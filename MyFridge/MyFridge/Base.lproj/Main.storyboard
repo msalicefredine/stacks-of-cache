@@ -8,6 +8,7 @@
         <!--My Food-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -27,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jCM-GJ-xF1">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="center" reuseIdentifier="Cell" id="jCM-GJ-xF1">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -38,16 +39,6 @@
                                         <color key="backgroundColor" red="0.023578893779999999" green="0.01059245319" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <size key="customSize" width="100" height="100"/>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kV6-tA-QkP">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" red="0.023578893779999999" green="0.01059245319" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -67,9 +58,8 @@
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="221"/>
+            <point key="canvasLocation" x="-11" y="201"/>
         </scene>
         <!--My Stats-->
         <scene sceneID="P48-7W-jIP">
@@ -116,7 +106,7 @@
                                 </date>
                             </datePicker>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Food Name..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eUP-Ps-gOq">
-                                <rect key="frame" x="135" y="162" width="331" height="30"/>
+                                <rect key="frame" x="6" y="162" width="588" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -139,7 +129,9 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="eUP-Ps-gOq" secondAttribute="centerX" id="1kq-i5-h7p"/>
+                            <constraint firstItem="eUP-Ps-gOq" firstAttribute="leading" secondItem="TeV-Dp-bT0" secondAttribute="leadingMargin" constant="-10" id="Axj-A4-bcA"/>
                             <constraint firstAttribute="centerX" secondItem="xQU-1U-mlB" secondAttribute="centerX" id="CHQ-hc-4kJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eUP-Ps-gOq" secondAttribute="trailing" constant="-10" id="IEN-rt-A7T"/>
                             <constraint firstItem="bM3-Th-vrj" firstAttribute="top" secondItem="eUP-Ps-gOq" secondAttribute="bottom" constant="36" id="Xz5-C5-3jj"/>
                             <constraint firstItem="xQU-1U-mlB" firstAttribute="top" secondItem="Lph-bq-O4x" secondAttribute="bottom" constant="50" id="cES-4T-fFH"/>
                             <constraint firstItem="R3P-aY-o8D" firstAttribute="leading" secondItem="TeV-Dp-bT0" secondAttribute="leadingMargin" constant="-10" id="dOV-oX-q88"/>

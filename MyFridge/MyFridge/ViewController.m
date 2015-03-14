@@ -10,8 +10,8 @@
 #import "FoodObject.h"
 #import "PickerViewController.h"
 
-@interface ViewController ()
-
+@interface ViewController () {
+}
 @end
 
 @implementation ViewController
@@ -29,15 +29,30 @@
 }
 
 
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return _listOfFood.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifier = @"Cell";
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    return cell;
+}
+
+
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
     
     PickerViewController *source = [segue sourceViewController];
     
     FoodObject *item = source.food;
     
+    
     if (item != nil) {
         [self.listOfFood addObject:item];
     }
+
 }
 
 @end
