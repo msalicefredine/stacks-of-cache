@@ -15,15 +15,12 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)sharedApplication didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 	
-	// Setting the notification settings? Hopefully?
-	
-	UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-
-	UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
-	[[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+	if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+		[[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
+		}
 	
     return YES;
 }
@@ -49,25 +46,5 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
-
-// Handles notifications that we send while app is in foreground
-- (void)application:(UIApplication *) sharedApplication
-					handleActionWithIdentifier: (NSString *) identifier
-					forLocalNotification: (NSDictionary *) notification
-					completionHandler: (void (^)()) completionHandler {
-			NSLog(@"Got a notification");
-
-    if ([identifier isEqualToString: @"ACCEPT_IDENTIFIER"]) {
-		NSLog(@"Accept was clicked apparently");
-
-    }
-
-    // Must be called when finished
-
-    completionHandler();
-}
-
-
 
 @end
