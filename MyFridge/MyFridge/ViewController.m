@@ -37,6 +37,18 @@
     
     if (item != nil) {
         [self.listOfFood addObject:item];
+		
+		// I think we might have to do something with but i have no idea what
+		UIUserNotificationSettings * currSettings = [[UIApplication application] currentUserNotificationSettings];
+		
+		UILocalNotification notification = [[UILocalNotification alloc] init];
+		notification.fireDate = item.expiry;
+		notification.alertBody = @"hi";
+		notification.alertTitle = @"yogurt";
+		[[UIApplication application] scheduleLocalNotification: notification];
+		// [[UIApplication application] presentLocalNotificationNow: notification];
+		
+		
     }
 }
 
