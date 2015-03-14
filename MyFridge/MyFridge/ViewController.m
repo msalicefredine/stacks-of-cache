@@ -29,7 +29,7 @@
 }
 
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+- (IBAction)unwindToHome:(UIStoryboardSegue *)segue {
     
     PickerViewController *source = [segue sourceViewController];
     
@@ -38,6 +38,15 @@
     
     if (item != nil) {
         [self.listOfFood addObject:item];
+        NSLog(@"This ran");
+    }
+    else if (source.isSaved){
+    UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Error!"
+                                                       message:@"Could not be saved."
+                                                      delegate:self
+                                             cancelButtonTitle:@"OK"
+                                             otherButtonTitles:nil];
+    [theAlert show];
     }
 
 }

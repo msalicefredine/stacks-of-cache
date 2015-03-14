@@ -38,12 +38,7 @@
     
     if (self.date == [NSDate date] || [[NSDate date] earlierDate:self.date] == self.date) {
         self.date = nil;
-        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Error!"
-                                                           message:@"Expiry date must be at least one day in advance."
-                                                          delegate:self
-                                                 cancelButtonTitle:@"OK"
-                                                 otherButtonTitles:nil];
-        [theAlert show];
+        
     }
 }
 

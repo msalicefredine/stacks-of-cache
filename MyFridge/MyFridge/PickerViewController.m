@@ -20,6 +20,7 @@
 @property (weak, nonatomic) NSDate *expDate;
 
 
+
 @end
 
 @implementation PickerViewController
@@ -63,6 +64,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    self.isSaved = NO;
     NSInteger row = [_typeField selectedRowInComponent:0];
     if (sender != self.saveButton) return;
     if (self.foodField.text.length > 0) {
@@ -72,19 +74,15 @@
         self.food.type = [_array objectAtIndex:row];
         self.food.expiry = self.expDate;
     }
+    self.isSaved = YES;
     
     if (self.food.name == nil || self.food.type == nil) {
-        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Error!"
-                                                       message:@"Could not be saved."
-                                                      delegate:self
-                                             cancelButtonTitle:@"OK"
-                                             otherButtonTitles:nil];
-        [theAlert show];
+        self.food = nil;
 
     }
 }
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+- (IBAction)unwindToAddFood:(UIStoryboardSegue *)segue {
     
     DatePickerViewController *source = [segue sourceViewController];
     
@@ -93,6 +91,15 @@
     
     if (item != nil) {
         self.expDate = item;
+    }
+    
+    else {
+        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Error!"
+                                                           message:@"Expiry date must be at least one day in advance."
+                                                          delegate:self
+                                                 cancelButtonTitle:@"OK"
+                                                 otherButtonTitles:nil];
+        [theAlert show];
     }
     
 }

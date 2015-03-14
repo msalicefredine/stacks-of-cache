@@ -12,4 +12,5 @@
 @interface PickerViewController : UIViewController < UIPickerViewDelegate, UIPickerViewDataSource >
 @property (strong, nonatomic) IBOutlet UIPickerView *picker;
 @property FoodObject *food;
+@property BOOL *isSaved;
 @end
