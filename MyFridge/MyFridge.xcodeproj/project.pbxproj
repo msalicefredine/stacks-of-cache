@@ -426,6 +426,7 @@
 				5A1695891AB3DD9D0046A4E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5A16958A1AB3DD9D0046A4E3 /* Build configuration list for PBXNativeTarget "MyFridgeTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +435,7 @@
 				5A16958C1AB3DD9D0046A4E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
