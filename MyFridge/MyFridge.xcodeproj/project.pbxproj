@@ -16,6 +16,7 @@
 		5A1695841AB3DD9D0046A4E3 /* MyFridgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1695831AB3DD9D0046A4E3 /* MyFridgeTests.m */; };
 		5A16958F1AB3EFDE0046A4E3 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A16958E1AB3EFDE0046A4E3 /* PickerViewController.m */; };
 		5A1695951AB419E10046A4E3 /* FoodObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1695941AB419E10046A4E3 /* FoodObject.m */; };
+		5A16959D1AB4DEC20046A4E3 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A16959C1AB4DEC20046A4E3 /* DatePickerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		5A16958E1AB3EFDE0046A4E3 /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
 		5A1695931AB419E10046A4E3 /* FoodObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodObject.h; sourceTree = "<group>"; };
 		5A1695941AB419E10046A4E3 /* FoodObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodObject.m; sourceTree = "<group>"; };
+		5A16959B1AB4DEC20046A4E3 /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
+		5A16959C1AB4DEC20046A4E3 /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,8 @@
 				5A16958E1AB3EFDE0046A4E3 /* PickerViewController.m */,
 				5A1695931AB419E10046A4E3 /* FoodObject.h */,
 				5A1695941AB419E10046A4E3 /* FoodObject.m */,
+				5A16959B1AB4DEC20046A4E3 /* DatePickerViewController.h */,
+				5A16959C1AB4DEC20046A4E3 /* DatePickerViewController.m */,
 			);
 			path = MyFridge;
 			sourceTree = "<group>";
@@ -178,9 +183,11 @@
 				TargetAttributes = {
 					5A1695631AB3DD9D0046A4E3 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 2ME9TTGE7Q;
 					};
 					5A16957C1AB3DD9D0046A4E3 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 2ME9TTGE7Q;
 						TestTargetID = 5A1695631AB3DD9D0046A4E3;
 					};
 				};
@@ -233,6 +240,7 @@
 				5A1695951AB419E10046A4E3 /* FoodObject.m in Sources */,
 				5A16956D1AB3DD9D0046A4E3 /* AppDelegate.m in Sources */,
 				5A16958F1AB3EFDE0046A4E3 /* PickerViewController.m in Sources */,
+				5A16959D1AB4DEC20046A4E3 /* DatePickerViewController.m in Sources */,
 				5A16956A1AB3DD9D0046A4E3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,7 +365,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = MyFridge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -367,7 +377,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = MyFridge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -377,6 +389,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -388,6 +402,7 @@
 				INFOPLIST_FILE = MyFridgeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyFridge.app/MyFridge";
 			};
 			name = Debug;
@@ -396,6 +411,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -403,6 +420,7 @@
 				INFOPLIST_FILE = MyFridgeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyFridge.app/MyFridge";
 			};
 			name = Release;
