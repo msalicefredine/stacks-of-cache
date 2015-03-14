@@ -10,7 +10,7 @@
 #import "FoodObject.h"
 #import "PickerViewController.h"
 
-@import UIKit;
+@import UILocalNotification;
 
 @interface ViewController () {
 }
@@ -61,10 +61,8 @@
 		notification.fireDate = item.expiry;
 		notification.alertBody = @"hi";
 		item.alert = notification;
-		[[UIApplication sharedApplication] scheduleLocalNotification: notification];
-		// [[UIApplication application] presentLocalNotificationNow: notification];
-		
-		
+//		[[UIApplication sharedApplication] scheduleLocalNotification: notification];
+		[[UIApplication sharedApplication] presentLocalNotificationNow: notification];
     }
 
 }

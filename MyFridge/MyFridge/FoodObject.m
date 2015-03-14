@@ -19,7 +19,7 @@
     self.expiry = expiry;
     self.type = type;
     self.name = name;
-	self.alert = NULL;
+	self.alert = nil;
     return self;
 }
 
