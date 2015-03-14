@@ -19,6 +19,7 @@
     self.expiry = expiry;
     self.type = type;
     self.name = name;
+	self.alert = NULL;
     return self;
 }
 

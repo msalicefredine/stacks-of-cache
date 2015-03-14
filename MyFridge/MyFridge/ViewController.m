@@ -45,6 +45,7 @@
 		notification.fireDate = item.expiry;
 		notification.alertBody = @"hi";
 		notification.alertTitle = @"yogurt";
+		item.alert = &notification;
 		[[UIApplication application] scheduleLocalNotification: notification];
 		// [[UIApplication application] presentLocalNotificationNow: notification];
 		
