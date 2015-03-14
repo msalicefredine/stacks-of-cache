@@ -61,6 +61,9 @@
     if (item != nil) {
         [self.listOfFood addObject:item];
     }
+    if (item != nil){
+        [self->_collectionData addObject:item];
+    }
 }
 
 #pragma mark Collection View Methods
