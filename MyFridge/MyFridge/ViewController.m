@@ -14,13 +14,20 @@
 }
 @end
 
-@implementation ViewController
+@implementation ViewController{
+
+    NSMutableArray *_collectionData;
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     _listOfFood = [[NSMutableArray array] init];
-    // Do any additional setup after loading the view, typically from a nib.
+    _collectionData = [[NSMutableArray array] init];
+    //_collectionData = _listOfFood;
+
+    [self loadInitialData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,12 +36,26 @@
 }
 
 
+// fake data
+- (void)loadInitialData {
+    FoodObject *item1 = [[FoodObject alloc] init];
+    item1.name = @"Brocolli";
+    [self->_collectionData addObject:item1];
+    FoodObject *item2 = [[FoodObject alloc] init];
+    item2.name = @"Eggs";
+    [self->_collectionData addObject:item2];
+    FoodObject *item3 = [[FoodObject alloc] init];
+    item3.name = @"Beets";
+    [self->_collectionData addObject:item3];
+}
+
+
 - (IBAction)unwindToHome:(UIStoryboardSegue *)segue {
     
     PickerViewController *source = [segue sourceViewController];
     
     FoodObject *item = source.food;
-    
+    NSLog(@"returning from segue");
     
     if (item != nil) {
         [self.listOfFood addObject:item];
@@ -48,7 +69,40 @@
                                              otherButtonTitles:nil];
     [theAlert show];
     }
+    if (item != nil){
+        [self->_collectionData addObject:item];
+        [self.collectionView reloadData];
+        NSLog(@"Item added to list.");
+    }
 
+
+}
+
+#pragma mark Collection View Methods
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    // only one collection (food in fridge)
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+
+    return [_collectionData count];
+    //return _listOfFood.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+
+
+    UICollectionViewCell *foodCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FoodCell" forIndexPath:indexPath];
+
+    UILabel *label = (UILabel *)[foodCell viewWithTag:100];
+    FoodObject *foodObject = [self->_collectionData objectAtIndex: indexPath.row];
+    label.text = foodObject.name;
+
+    [foodCell.layer setCornerRadius:20.0f];
+
+    return foodCell;
 }
 
 @end
