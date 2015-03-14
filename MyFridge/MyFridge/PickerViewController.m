@@ -7,6 +7,7 @@
 //
 
 #import "PickerViewController.h"
+#import "DatePickerViewController.h"
 
 @interface PickerViewController ()
 
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textFieldHorizontal;
+@property (weak, nonatomic) NSDate *expDate;
 
 
 @end
@@ -68,7 +70,7 @@
         self.food.name = self.foodField.text;
         
         self.food.type = [_array objectAtIndex:row];
-        self.food.expiry = nil;
+        self.food.expiry = self.expDate;
     }
     
     if (self.food.name == nil || self.food.type == nil) {
@@ -80,7 +82,18 @@
         [theAlert show];
 
     }
+}
+
+- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
     
+    DatePickerViewController *source = [segue sourceViewController];
+    
+    NSDate *item = source.date;
+    
+    
+    if (item != nil) {
+        self.expDate = item;
+    }
     
 }
 

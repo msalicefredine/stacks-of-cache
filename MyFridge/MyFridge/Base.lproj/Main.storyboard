@@ -212,7 +212,6 @@
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="bM3-Th-vrj" id="Y1G-bI-rdl"/>
-                        <outlet property="saveButto" destination="HcR-6S-4We" id="yhK-st-HDf"/>
                         <outlet property="saveButton" destination="HcR-6S-4We" id="SIW-JE-znD"/>
                     </connections>
                 </viewController>
