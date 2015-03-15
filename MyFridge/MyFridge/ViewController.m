@@ -17,15 +17,12 @@
 @implementation ViewController{
 
     NSMutableArray *_collectionData;
-    FoodObject *foodItem;
 
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     _collectionData = [[NSMutableArray array] init];
-    foodItem = [[FoodObject alloc] init];
-    //_listOfFood = [[NSMutableArray array] init];
     //[self.collectionView reloadData];
     //self.collectionView.dataSource = _collectionData;
     [self loadInitialData];
@@ -38,44 +35,35 @@
 
 
 // fake data
-- (void)loadFakeData {
+- (void)loadInitialData {
     FoodObject *item1 = [[FoodObject alloc] init];
     item1.name = @"Brocolli";
     [self->_collectionData addObject:item1];
     FoodObject *item2 = [[FoodObject alloc] init];
     item2.name = @"Eggs";
     [self->_collectionData addObject:item2];
-
     //FoodObject *item3 = [[FoodObject alloc] init];
     //item3.name = @"Beets";
     //[self->_collectionData addObject:item3];
 }
 
-- (void)loadInitialData{
-    if (foodItem != nil) {
-        [self->_collectionData addObject:foodItem];
-    }
-    NSInteger size = [_collectionData count];
-    NSLog(@"CollectionData size: %lu", size);
-    NSLog(@"Item added to list.");
-}
 
 
 - (IBAction)unwindToHome:(UIStoryboardSegue *)segue {
     
     PickerViewController *source = [segue sourceViewController];
     
-    FoodObject *item = [[FoodObject alloc] init];
-    item = source.food;
+    FoodObject *item = source.food;
     NSLog(@"%@", item.name);
     NSLog(@"returning from segue");
     
     if (item != nil) {
-        //[self->_collectionData addObject:item];
-        foodItem = item;
-        [self loadInitialData];
-        //[self viewDidLoad];
-    }
+        [self->_collectionData addObject:item];
+        NSInteger size = [_collectionData count];
+        NSLog(@"CollectionData size: %lu", size);
+        NSLog(@"Item added to list.");
+        [self.collectionView reloadData];
+        }
     
     else if (source.isSaved){
     UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Error!"
