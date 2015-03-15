@@ -7,12 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
-@interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource> {
+    NSFetchedResultsController *fetchedResultsController;
+    NSManagedObjectContext *managedObjectContext;
+
+}
+
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic)NSMutableArray *listOfFood;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property NSInteger *foodEaten;
+@property NSInteger *garbage;
+@property NSMutableArray *collectionData;
+
 
 @end
 
