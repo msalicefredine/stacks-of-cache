@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textFieldHorizontal;
 @property (weak, nonatomic) NSDate *expDate;
+@property NSInteger *rowIndex;
 
 
 
@@ -31,6 +32,15 @@
     NSArray *data = [[NSArray alloc] initWithObjects: @"Vegetable", @"Fruit", @"Meat", @"Dairy", nil];
     
     self.array = data;
+    
+    if (self.food != nil) {
+        if (self.food.name != nil) {
+            self.foodField.text = self.food.name;
+        }
+        if (*(_rowIndex) != nil) {
+        [_typeField selectRow:*(_rowIndex) inComponent:0 animated:YES];
+        }
+    }
     
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -66,6 +76,7 @@
     // Pass the selected object to the new view controller.
     self.isSaved = NO;
     NSInteger row = [_typeField selectedRowInComponent:0];
+    _rowIndex = &row;
     if (sender != self.saveButton) return;
     if (self.foodField.text.length > 0) {
         NSLog(@"Segue being prepared and setting foodObject fields.");
