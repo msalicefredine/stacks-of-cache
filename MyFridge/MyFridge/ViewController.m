@@ -17,6 +17,8 @@
 @implementation ViewController{
 
     NSMutableArray *_collectionData;
+    NSInteger *foodEaten;
+    NSInteger *garbage;
 
 }
 
