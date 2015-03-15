@@ -44,7 +44,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.023578893779999999" green="0.01059245319" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.8409218451823447" green="1" blue="0.68921216402203389" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -63,20 +63,25 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Food" id="Lpd-VQ-nmQ">
                         <barButtonItem key="leftBarButtonItem" title="Stats" id="5Sr-rR-XQF">
+                            <color key="tintColor" red="0.0" green="0.67671535326086962" blue="0.010869814034326646" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="bOd-WA-lXR" kind="show" id="4IX-Ll-1Is"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="MEb-wQ-xfi">
+                            <color key="tintColor" red="0.0" green="0.67671535329999999" blue="0.010869814029999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="JcQ-Ri-Y2E" kind="show" id="kfw-ft-V2E"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="jso-vk-KZj" id="ejz-um-ZJM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="9Gj-q5-3q2"/>
@@ -121,33 +126,39 @@
                                     <outlet property="delegate" destination="JcQ-Ri-Y2E" id="amH-ea-HlJ"/>
                                 </connections>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Food Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4As-dm-3bK">
+                                <rect key="frame" x="21" y="116" width="86" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.67671535329999999" blue="0.010869814029999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPi-ne-YzJ">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <color key="backgroundColor" red="0.84092184520000002" green="1" blue="0.68921216399999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="RJg-8x-91b">
+                                        <color key="tintColor" red="0.0" green="0.67671535329999999" blue="0.010869814029999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9Jo-pW-4rb"/>
+                                    <barButtonItem title="Add Expiry Date  " id="G1y-FR-5fn">
+                                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                                        <color key="tintColor" red="0.0" green="0.67671535329999999" blue="0.010869814029999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="ZBf-YU-99x" kind="show" id="80z-SE-0sk"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" red="0.84092184520000002" green="1" blue="0.68921216399999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Food Name..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eUP-Ps-gOq">
                                 <rect key="frame" x="21" y="285" width="559" height="30"/>
+                                <color key="backgroundColor" red="0.84092184520000002" green="1" blue="0.68921216399999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="JcQ-Ri-Y2E" id="b5k-uG-rjs"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Food Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4As-dm-3bK">
-                                <rect key="frame" x="21" y="116" width="86" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPi-ne-YzJ">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem systemItem="camera" id="RJg-8x-91b"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9Jo-pW-4rb"/>
-                                    <barButtonItem title="Add Expiry Date  " id="G1y-FR-5fn">
-                                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                        <connections>
-                                            <segue destination="ZBf-YU-99x" kind="show" id="80z-SE-0sk"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -165,11 +176,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Food" id="s7w-B0-aGo">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="qNe-dR-7wq">
+                            <color key="tintColor" red="0.0" green="0.67671535329999999" blue="0.010869814029999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="w90-Cl-gm1" kind="unwind" unwindAction="unwindToHome:" id="fG3-5o-Fis"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="VyW-ir-MRk">
+                            <color key="tintColor" red="0.0" green="0.67671535326086962" blue="0.010869814034326646" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="w90-Cl-gm1" kind="unwind" unwindAction="unwindToHome:" id="w9P-95-DXE"/>
                             </connections>
@@ -186,7 +199,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SEp-E7-9Bn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="w90-Cl-gm1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="579" y="226"/>
+            <point key="canvasLocation" x="687" y="289"/>
         </scene>
         <!--Date Picker View Controller-->
         <scene sceneID="k8j-Ya-5vZ">
@@ -209,6 +222,7 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcR-6S-4We">
                                 <rect key="frame" x="244" y="550" width="103" height="30"/>
                                 <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.0" green="0.67671535329999999" blue="0.010869814029999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -218,7 +232,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Choose Expiration Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQU-1U-mlB">
                                 <rect key="frame" x="202" y="28" width="187" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.67671535329999999" blue="0.010869814029999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -240,7 +254,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5o-9L-2gO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0oC-PD-oWE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1221" y="226"/>
+            <point key="canvasLocation" x="1357" y="289"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AUK-vP-gze">
@@ -250,6 +264,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4gZ-52-QDY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.94955954990000002" green="1" blue="0.93764191600000002" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
