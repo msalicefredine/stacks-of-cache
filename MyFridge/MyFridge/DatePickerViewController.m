@@ -5,6 +5,7 @@
 //  Created by Alice Fredine on 2015-03-14.
 //  Copyright (c) 2015 Alice Fredine. All rights reserved.
 //
+
 #import "DatePickerViewController.h"
 
 @interface DatePickerViewController ()
@@ -37,14 +38,8 @@
     
     if (self.date == [NSDate date] || [[NSDate date] earlierDate:self.date] == self.date) {
         self.date = nil;
-        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Error!"
-                                                           message:@"Expiry date must be at least one day in advance."
-                                                          delegate:self
-                                                 cancelButtonTitle:@"OK"
-                                                 otherButtonTitles:nil];
-        [theAlert show];
+        
     }
-
 }
 
 

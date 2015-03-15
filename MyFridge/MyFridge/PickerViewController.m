@@ -1,3 +1,11 @@
+//
+//  PickerViewController.m
+//  MyFridge
+//
+//  Created by Alice Fredine on 2015-03-13.
+//  Copyright (c) 2015 Alice Fredine. All rights reserved.
+//
+
 #import "PickerViewController.h"
 #import "DatePickerViewController.h"
 
@@ -10,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textFieldHorizontal;
 @property (weak, nonatomic) NSDate *expDate;
+
 
 
 @end
@@ -55,36 +64,45 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    self.isSaved = NO;
     NSInteger row = [_typeField selectedRowInComponent:0];
     if (sender != self.saveButton) return;
     if (self.foodField.text.length > 0) {
+        NSLog(@"Segue being prepared and setting foodObject fields.");
         self.food = [[FoodObject alloc] init];
         self.food.name = self.foodField.text;
         
         self.food.type = [_array objectAtIndex:row];
         self.food.expiry = self.expDate;
+
     }
+    self.isSaved = YES;
     
     if (self.food.name == nil || self.food.type == nil) {
-        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Error!"
-                                                           message:@"Could not be saved."
-                                                          delegate:self
-                                                 cancelButtonTitle:@"OK"
-                                                 otherButtonTitles:nil];
-        [theAlert show];
-        
+        self.food = nil;
+
     }
 }
 
-- (IBAction)unwindToPickerView:(UIStoryboardSegue *)segue {
+- (IBAction)unwindToAddFood:(UIStoryboardSegue *)segue {
     
     DatePickerViewController *source = [segue sourceViewController];
     
     NSDate *item = source.date;
-    
+    NSLog(@"Return from Date Segue");
     
     if (item != nil) {
         self.expDate = item;
+        NSLog(@"Date set.");
+    }
+    
+    else {
+        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Error!"
+                                                           message:@"Expiry date must be at least one day in advance."
+                                                          delegate:self
+                                                 cancelButtonTitle:@"OK"
+                                                 otherButtonTitles:nil];
+        [theAlert show];
     }
     
 }
