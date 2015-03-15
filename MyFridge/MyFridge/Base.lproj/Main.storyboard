@@ -108,11 +108,7 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="camera" id="RJg-8x-91b"/>
-                                    <barButtonItem systemItem="cancel" id="OKX-Mq-Zqp">
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="gZT-N2-fG5"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem systemItem="cancel" id="OKX-Mq-Zqp"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="9Jo-pW-4rb"/>
                                     <barButtonItem title="Add Expiry Date  " id="G1y-FR-5fn">
                                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
@@ -147,7 +143,7 @@
                     <navigationItem key="navigationItem" title="Add Food" id="s7w-B0-aGo">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="VyW-ir-MRk">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="RGh-9E-OuE"/>
+                                <segue destination="FpC-aT-byu" kind="unwind" unwindAction="unwindToView:" id="tBU-qD-5Ni"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -159,6 +155,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SEp-E7-9Bn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="FpC-aT-byu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="517" y="221"/>
         </scene>
@@ -235,7 +232,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Did-rL-yPe"/>
-        <segue reference="gZT-N2-fG5"/>
+        <segue reference="Uvv-Gp-ypP"/>
     </inferredMetricsTieBreakers>
 </document>

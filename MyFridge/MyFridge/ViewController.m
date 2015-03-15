@@ -16,7 +16,10 @@
 }
 @end
 
-@implementation ViewController
+@implementation ViewController {
+
+NSMutableArray *_collectionData;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,12 +52,12 @@
     PickerViewController *source = [segue sourceViewController];
     
     FoodObject *item = source.food;
-    
+    NSLog(@"returning from segue");
     
     if (item != nil) {
-        NSLog(@"Hello World!");
-        [self.listOfFood addObject:item];
-		
+        [self->_collectionData addObject:item];
+        //[self.collectionView reloadData];
+        NSLog(@"Item added to list.");
 		// I think we might have to do something with but i have no idea what
 		UIUserNotificationSettings * currSettings = [[UIApplication sharedApplication] currentUserNotificationSettings];
 		

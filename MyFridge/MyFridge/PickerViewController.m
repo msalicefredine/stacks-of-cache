@@ -74,7 +74,6 @@
         [theAlert show];
         
     }
-        assert(self.food != nil);
 }
 
 - (IBAction)unwindToPickerView:(UIStoryboardSegue *)segue {
