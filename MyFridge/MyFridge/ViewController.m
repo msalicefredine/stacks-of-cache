@@ -44,7 +44,7 @@
 }
 
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+- (IBAction)unwindToView:(UIStoryboardSegue *)segue {
     
     PickerViewController *source = [segue sourceViewController];
     
@@ -52,6 +52,7 @@
     
     
     if (item != nil) {
+        NSLog(@"Hello World!");
         [self.listOfFood addObject:item];
 		
 		// I think we might have to do something with but I have no idea what
@@ -70,6 +71,7 @@
 		item.alert = notification;
 //		[[UIApplication sharedApplication] scheduleLocalNotification: notification];
 		[[UIApplication sharedApplication] presentLocalNotificationNow: notification];
+        
     }
 
 }
