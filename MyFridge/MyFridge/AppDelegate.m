@@ -53,6 +53,15 @@
 	
 	ViewController* this = [[[UIApplication* sharedApplication] keyWindow] rootViewController];
 	
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+     
+    NSInteger *fe = [defaults objectForKey:@"foodEaten"];
+    NSInteger *fta = [defaults objectForKey:@"foodThrownAway"];
+	NSMutableArray *list = [defaults objectForKey:@"listOfFood"];
+	
+	this.foodEaten = fe;
+	this.foodThrownAway = fta;
+	this.listOfFood = list;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
