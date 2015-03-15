@@ -75,15 +75,6 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    /*ViewController* mainController = (ViewController *)  self.window.rootViewController;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    
-    
-    [defaults setInteger:*(mainController.foodEaten) forKey:@"foodEaten"];
-    [defaults setInteger:*(mainController.garbage) forKey:@"garbage"];
-    [defaults setObject:mainController.collectionData forKey:@"collectionData"];*/
     
 }
 
@@ -91,18 +82,6 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 
-    /*NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    ViewController* mainController = (ViewController *)  self.window.rootViewController;
-    
-    NSInteger fe = [defaults integerForKey:@"foodEaten"];
-    NSInteger fta = [defaults integerForKey:@"garbage"];
-    NSMutableArray *col = [defaults objectForKey:@"collectionData"];
-
-    
-    mainController.foodEaten = &(fe);
-    mainController.garbage = &(fta);
-    mainController.collectionData = col; */
 
 }
 
@@ -135,14 +114,6 @@
     ViewController* mainController = (ViewController *)  self.window.rootViewController;
     mainController.managedObjectContext = self.managedObjectContext;
 }
-
-/*- (void)dealloc {
-    [managedObjectContext release];s
-    [managedObjectModel release];
-    [persistentStoreCoordinator release];
- }
-    
-    (...Existing Dealloc Releases...) */
 
 
 @end
