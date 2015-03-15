@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+@import UIKit;
 
 @interface AppDelegate ()
 
@@ -16,7 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
     // Override point for customization after application launch.
+	
+	if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+		[[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
+		}
+	
     return YES;
 }
 
@@ -28,10 +35,29 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+	
+	UIViewController *this = [[[UIApplication* sharedApplication] keyWindow] viewController];
+	
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
+
+	[defaults setObject:this._collectionData forKey:@"listOfFood"];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+	
+	UIViewController* this = [[[UIApplication* sharedApplication] keyWindow] rootViewController];
+	
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+     
+    NSInteger *fe = [defaults objectForKey:@"foodEaten"];
+    NSInteger *fta = [defaults objectForKey:@"foodThrownAway"];
+	NSMutableArray *list = [defaults objectForKey:@"listOfFood"];
+	
+	this.foodEaten = fe;
+	this.foodThrownAway = fta;
+	this.listOfFood = list;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -41,5 +67,9 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+	NSLog(@"Got a notification!");
+ }
 
 @end

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "FoodObject.h"
 #import "PickerViewController.h"
+@import UIKit;
 
 @interface ViewController () {
 }
@@ -58,6 +59,20 @@
     if (item != nil) {
         [self->_collectionData addObject:item];
         [self.collectionView reloadData];
+		
+		// I think we might have to do something with but I have no idea what
+		UIUserNotificationSettings * currSettings = [[UIApplication sharedApplication] currentUserNotificationSettings];
+		
+		UILocalNotification *notification = [[UILocalNotification alloc] init];
+		
+		NSTimeInterval timeInterval = [item.expiry timeIntervalSinceNow] * 0.8;
+		NSDate *notifyDate = [item.expiry dateByAddingTimeInterval: timeInterval];
+		
+		notification.fireDate = item.expiry;
+		NSString *message = [NSString stringWithFormat:@"%@/%@/%s", @"Your ", item.name, " expires soon. Eat it today!!!!!"];
+		notification.alertBody = message;
+		// notification.alertTitle = @"myFridge");
+		item.alert = notification;
     }
     
     else if (source.isSaved){
