@@ -17,16 +17,13 @@
 
 @implementation ViewController{
 
-    NSMutableArray *_collectionData;
-    NSInteger *foodEaten;
-    NSInteger *garbage;
-
+    
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _listOfFood = [[NSMutableArray array] init];
     _collectionData = [[NSMutableArray array] init];
     [self.collectionView reloadData];
     //[self loadInitialData];

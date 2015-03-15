@@ -13,6 +13,10 @@
 @property (strong, nonatomic)NSMutableArray *listOfFood;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property NSInteger *foodEaten;
+@property NSInteger *garbage;
+@property NSMutableArray *collectionData;
+
 
 @end
 
