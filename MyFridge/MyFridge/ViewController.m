@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "FoodObject.h"
 #import "PickerViewController.h"
+@import UIKit;
 
 @interface ViewController () {
 }
@@ -58,8 +59,23 @@
     FoodObject *item = source.food;
     
     if (item != nil) {
+        /*UIUserNotificationSettings * currSettings = [[UIApplication sharedApplication] currentUserNotificationSettings];*/
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        
+        NSTimeInterval timeInterval = [item.expiry timeIntervalSinceNow] * 0.8;
+        NSDate *notifyDate = [item.expiry dateByAddingTimeInterval:timeInterval];
+        
+        notification.fireDate = notifyDate;
+        NSString *message = [NSString stringWithFormat:@"Your %@ expires soon. Eat it today!", item.name];
+        notification.alertBody = message;
+        notification.alertAction = @"OK";
+        item.alert = notification;
+        
         [self->_collectionData addObject:item];
         [self.collectionView reloadData];
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        
     }
     
     else if (source.isSaved){
@@ -70,8 +86,6 @@
                                              otherButtonTitles:nil];
     [theAlert show];
     }
-
-
 }
 
 #pragma mark Collection View Methods

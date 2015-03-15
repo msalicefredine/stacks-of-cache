@@ -86,6 +86,32 @@
         self.food.expiry = self.expDate;
 
     }
+    
+    // If date is nil, set default expiry based on food type
+    if (self.food.expiry == nil) {
+        switch (row) {
+            // Vegetables - 1 week
+            case 0:
+                self.food.expiry = [NSDate dateWithTimeIntervalSinceNow:30240];
+                break;
+            // Fruit - 1 week
+            case 1:
+                self.food.expiry = [NSDate dateWithTimeIntervalSinceNow:30240];
+                break;
+            // Meat - 3 Days
+            case 2:
+                self.food.expiry = [NSDate dateWithTimeIntervalSinceNow:12960];
+                break;
+            // Dairy - 5 Days
+            case 3:
+                self.food.expiry = [NSDate dateWithTimeIntervalSinceNow:43200];
+                break;
+                
+            default:
+                self.food.expiry = [NSDate date];
+                break;
+        }
+    }
     self.isSaved = YES;
     
     if (self.food.name == nil || self.food.type == nil) {
