@@ -24,6 +24,50 @@
     return YES;
 }
 
+
+- (NSManagedObjectContext *) managedObjectContext {
+    if (managedObjectContext != nil) {
+        return managedObjectContext;
+    }
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil) {
+        managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [managedObjectContext setPersistentStoreCoordinator: coordinator];
+    }
+    
+    return managedObjectContext;
+}
+
+- (NSManagedObjectModel *)managedObjectModel {
+    if (managedObjectModel != nil) {
+        return managedObjectModel;
+    }
+    managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    
+    return managedObjectModel;
+}
+
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+    if (persistentStoreCoordinator != nil) {
+        return persistentStoreCoordinator;
+    }
+    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory]
+                                               stringByAppendingPathComponent: @"<Project Name>.sqlite"]];
+    NSError *error = nil;
+    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]
+                                  initWithManagedObjectModel:[self managedObjectModel]];
+    if(![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                 configuration:nil URL:storeUrl options:nil error:&error]) {
+        /*Error for store creation should be handled in here*/
+    }
+    
+    return persistentStoreCoordinator;
+}
+
+- (NSString *)applicationDocumentsDirectory {
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -64,18 +108,6 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    ViewController* mainController = (ViewController *)  self.window.rootViewController;
-    
-    NSInteger fe = [defaults integerForKey:@"foodEaten"];
-    NSInteger fta = [defaults integerForKey:@"garbage"];
-    NSMutableArray *col = [defaults objectForKey:@"collectionData"];
-    
-    
-    mainController.foodEaten = &(fe);
-    mainController.garbage = &(fta);
-    mainController.collectionData = col;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -99,5 +131,18 @@
     [theAlert show];
 
 }
+-(void)applicationDidFinishLaunching:(UIApplication *)application {
+    ViewController* mainController = (ViewController *)  self.window.rootViewController;
+    mainController.managedObjectContext = self.managedObjectContext;
+}
+
+/*- (void)dealloc {
+    [managedObjectContext release];s
+    [managedObjectModel release];
+    [persistentStoreCoordinator release];
+ }
+    
+    (...Existing Dealloc Releases...) */
+
 
 @end

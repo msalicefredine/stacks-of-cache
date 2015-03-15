@@ -15,10 +15,28 @@
 }
 @end
 
-@implementation ViewController{
+@implementation ViewController
+@synthesize fetchedResultsController, managedObjectContext;
+    
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
+    // Fetch the devices from persistent data store
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Food"];
+    self.collectionData = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
+    [self.collectionView reloadData];
 }
 
 - (void)viewDidLoad {
@@ -56,7 +74,9 @@
     FoodObject *item = source.food;
     
     if (item != nil) {
-        /*UIUserNotificationSettings * currSettings = [[UIApplication sharedApplication] currentUserNotificationSettings];*/
+        
+        
+        // Set up a notification for the item
         UILocalNotification *notification = [[UILocalNotification alloc] init];
         
         NSTimeInterval timeInterval = [item.expiry timeIntervalSinceNow] * 0.8;
@@ -67,6 +87,24 @@
         notification.alertBody = message;
         notification.alertAction = @"OK";
         item.alert = notification;
+        
+        // Set up the item in persistent data
+        
+        NSManagedObjectContext *context = [self managedObjectContext];
+        
+        // Create a new managed object
+        NSManagedObject *newFood = [NSEntityDescription insertNewObjectForEntityForName:@"Food" inManagedObjectContext:context];
+        [newFood setValue:item.name forKey:@"name"];
+        [newFood setValue:item.type forKey:@"type"];
+        [newFood setValue:item.expiry forKey:@"expiry"];
+        
+        NSError *error = nil;
+        // Save the object to persistent store
+        if (![context save:&error]) {
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        }
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
         
         [self->_collectionData addObject:item];
         [self.collectionView reloadData];
