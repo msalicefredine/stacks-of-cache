@@ -36,7 +36,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="wKB-Lp-2IQ">
-                                                    <rect key="frame" x="6" y="29" width="68" height="21"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -48,8 +48,8 @@
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="centerX" secondItem="wKB-Lp-2IQ" secondAttribute="centerX" id="Dlh-Jc-UgM"/>
-                                            <constraint firstAttribute="centerY" secondItem="wKB-Lp-2IQ" secondAttribute="centerY" id="acR-nz-4lm"/>
+                                            <constraint firstAttribute="centerY" secondItem="wKB-Lp-2IQ" secondAttribute="centerY" id="cUs-cc-CVh"/>
+                                            <constraint firstAttribute="centerX" secondItem="wKB-Lp-2IQ" secondAttribute="centerX" id="kW6-au-nQa"/>
                                         </constraints>
                                         <size key="customSize" width="80" height="80"/>
                                         <connections>

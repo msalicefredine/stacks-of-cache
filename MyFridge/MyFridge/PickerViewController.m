@@ -79,7 +79,6 @@
     _rowIndex = &row;
     if (sender != self.saveButton) return;
     if (self.foodField.text.length > 0) {
-        NSLog(@"Segue being prepared and setting foodObject fields.");
         self.food = [[FoodObject alloc] init];
         self.food.name = self.foodField.text;
         
@@ -100,11 +99,9 @@
     DatePickerViewController *source = [segue sourceViewController];
     
     NSDate *item = source.date;
-    NSLog(@"Return from Date Segue");
     
     if (item != nil) {
         self.expDate = item;
-        NSLog(@"Date set.");
     }
     
     else {

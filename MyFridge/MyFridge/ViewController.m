@@ -54,13 +54,10 @@
     PickerViewController *source = [segue sourceViewController];
     
     FoodObject *item = source.food;
-    NSLog(@"returning from segue");
     
     if (item != nil) {
         [self->_collectionData addObject:item];
         [self.collectionView reloadData];
-        NSLog(@"Item added to list.");
-        NSLog(@"Collection size is: %i", self->_collectionData.count);
     }
     
     else if (source.isSaved){
@@ -94,7 +91,7 @@
 
     UILabel *label = (UILabel *)[foodCell viewWithTag:100];
     FoodObject *foodObject = [self->_collectionData objectAtIndex: indexPath.row];
-    label.text = foodObject.name;
+    label.text = [NSString stringWithFormat:@"%@\n%@\nExpires:\n%@", foodObject.name, foodObject.type, foodObject.expiry];
 
     [foodCell.layer setCornerRadius:20.0f];
 
