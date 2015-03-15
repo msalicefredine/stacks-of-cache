@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@Import UIKit;
+@import UIKit;
 
 @interface FoodObject : NSObject
 

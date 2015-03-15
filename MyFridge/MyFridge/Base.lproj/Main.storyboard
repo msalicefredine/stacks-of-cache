@@ -98,7 +98,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4As-dm-3bK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Food Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4As-dm-3bK">
                                 <rect key="frame" x="21" y="116" width="85.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -143,7 +143,7 @@
                     <navigationItem key="navigationItem" title="Add Food" id="s7w-B0-aGo">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="VyW-ir-MRk">
                             <connections>
-                                <segue destination="FpC-aT-byu" kind="unwind" unwindAction="unwindToView:" id="tBU-qD-5Ni"/>
+                                <segue destination="FpC-aT-byu" kind="unwind" unwindAction="unwindToHome:" id="JtB-XQ-XfZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

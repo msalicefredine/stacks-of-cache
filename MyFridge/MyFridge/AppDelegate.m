@@ -15,12 +15,11 @@
 
 @implementation AppDelegate
 
-
+// Getting user permission to send push notifications
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 	
-	// Getting user permission to send push notifications
-	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
     // Override point for customization after application launch.
 	
 	if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {

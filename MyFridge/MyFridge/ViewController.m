@@ -14,16 +14,10 @@
 }
 @end
 
-<<<<<<< HEAD
 @implementation ViewController {
-
-NSMutableArray *_collectionData;
-=======
-@implementation ViewController{
 
     NSMutableArray *_collectionData;
 
->>>>>>> b10e386a0e5c8cb3755d234a75753b6973d1b191
 }
 
 - (void)viewDidLoad {
