@@ -10,19 +10,23 @@
 #import "FoodObject.h"
 #import "PickerViewController.h"
 
-@import UIKit;
-
 @interface ViewController () {
 }
 @end
 
-@implementation ViewController
+@implementation ViewController{
+
+    NSMutableArray *_collectionData;
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     _listOfFood = [[NSMutableArray array] init];
-    // Do any additional setup after loading the view, typically from a nib.
+    _collectionData = [[NSMutableArray array] init];
+    [self.collectionView reloadData];
+    //[self loadInitialData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,29 +35,31 @@
 }
 
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _listOfFood.count;
+// fake data
+- (void)loadInitialData {
+    FoodObject *item1 = [[FoodObject alloc] init];
+    item1.name = @"Brocolli";
+    [self->_collectionData addObject:item1];
+    FoodObject *item2 = [[FoodObject alloc] init];
+    item2.name = @"Eggs";
+    [self->_collectionData addObject:item2];
+    FoodObject *item3 = [[FoodObject alloc] init];
+    item3.name = @"Beets";
+    [self->_collectionData addObject:item3];
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifier = @"Cell";
-    
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    
-    return cell;
-}
 
-
-- (IBAction)unwindToView:(UIStoryboardSegue *)segue {
+- (IBAction)unwindToHome:(UIStoryboardSegue *)segue {
     
     PickerViewController *source = [segue sourceViewController];
     
     FoodObject *item = source.food;
-    
+    NSLog(@"returning from segue");
     
     if (item != nil) {
-        NSLog(@"Hello World!");
-        [self.listOfFood addObject:item];
+        [self->_collectionData addObject:item];
+        //[self.collectionView reloadData];
+        NSLog(@"Item added to list.");
 		
 		// I think we might have to do something with but I have no idea what
 		UIUserNotificationSettings * currSettings = [[UIApplication sharedApplication] currentUserNotificationSettings];
@@ -63,17 +69,49 @@
 		NSTimeInterval timeInterval = [item.expiry timeIntervalSinceNow] * 0.8;
 		NSDate notifyDate = [item.expiry dateByAddingTimeInterval: timeInterval];
 		
-		
 		notification.fireDate = item.expiry;
 		NSString message = [NSString stringWithFormat:@"%@/%@/%@", @"Your ", item.name, " expires soon. Eat it today!!!!!"];
 		notification.alertBody = message;
 		notification.alertTitle = @"myFridge");
 		item.alert = notification;
-//		[[UIApplication sharedApplication] scheduleLocalNotification: notification];
-		[[UIApplication sharedApplication] presentLocalNotificationNow: notification];
-        
+    }
+    
+    else if (source.isSaved){
+    UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Error!"
+                                                       message:@"Could not be saved."
+                                                      delegate:self
+                                             cancelButtonTitle:@"OK"
+                                             otherButtonTitles:nil];
+    [theAlert show];
     }
 
+
+}
+
+#pragma mark Collection View Methods
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    // only one collection (food in fridge)
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+
+    return [_collectionData count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+
+
+    UICollectionViewCell *foodCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FoodCell" forIndexPath:indexPath];
+
+    UILabel *label = (UILabel *)[foodCell viewWithTag:100];
+    FoodObject *foodObject = [self->_collectionData objectAtIndex: indexPath.row];
+    label.text = foodObject.name;
+
+    [foodCell.layer setCornerRadius:20.0f];
+
+    return foodCell;
 }
 
 @end
