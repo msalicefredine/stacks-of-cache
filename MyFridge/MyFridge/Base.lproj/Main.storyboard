@@ -87,10 +87,15 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="jso-vk-KZj" id="ejz-um-ZJM"/>
+                        <outlet property="foodSelector" destination="9Gj-q5-3q2" id="NZF-wn-tnD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="9Gj-q5-3q2"/>
+                <tapGestureRecognizer id="9Gj-q5-3q2">
+                    <connections>
+                        <action selector="selectFood1:" destination="BYZ-38-t0r" id="FCe-Po-XZ9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-41" y="248"/>
         </scene>

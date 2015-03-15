@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic)NSMutableArray *listOfFood;
 @property (nonatomic, retain) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *foodSelector;
 
 @end
 

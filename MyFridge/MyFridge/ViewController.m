@@ -25,7 +25,7 @@
     _collectionData = [[NSMutableArray array] init];
     //[self.collectionView reloadData];
     //self.collectionView.dataSource = _collectionData;
-    [self loadInitialData];
+    //[self loadInitialData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,10 +96,23 @@
     UILabel *label = (UILabel *)[foodCell viewWithTag:100];
     FoodObject *foodObject = [self->_collectionData objectAtIndex: indexPath.row];
     label.text = foodObject.name;
+    //label.minimumFontSize = 8.;
+    label.adjustsFontSizeToFitWidth = YES;
+    foodCell.tag = [_collectionData count] - 1;
 
     [foodCell.layer setCornerRadius:20.0f];
 
     return foodCell;
+}
+
+- (IBAction)selectFood1:(id)sender {
+
+    UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Food"
+                                                       message:@"Expiry date soon"
+                                                      delegate:self
+                                             cancelButtonTitle:@"OK"
+                                             otherButtonTitles:nil];
+    [theAlert show];
 }
 
 @end
