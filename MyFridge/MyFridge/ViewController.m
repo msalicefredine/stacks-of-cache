@@ -23,10 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _listOfFood = [[NSMutableArray array] init];
+    //_listOfFood = [[NSMutableArray array] init];
     _collectionData = [[NSMutableArray array] init];
     [self.collectionView reloadData];
-    //[self loadInitialData];
+    self.collectionView.dataSource = _collectionData;
+    [self loadInitialData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,9 +44,9 @@
     FoodObject *item2 = [[FoodObject alloc] init];
     item2.name = @"Eggs";
     [self->_collectionData addObject:item2];
-    FoodObject *item3 = [[FoodObject alloc] init];
-    item3.name = @"Beets";
-    [self->_collectionData addObject:item3];
+    //FoodObject *item3 = [[FoodObject alloc] init];
+    //item3.name = @"Beets";
+    //[self->_collectionData addObject:item3];
 }
 
 
@@ -54,11 +55,15 @@
     PickerViewController *source = [segue sourceViewController];
     
     FoodObject *item = source.food;
+    NSLog(@"%@", item.name);
     NSLog(@"returning from segue");
     
     if (item != nil) {
         [self->_collectionData addObject:item];
-        //[self.collectionView reloadData];
+        //FoodObject *testing = _collectionData.lastObject;
+        NSInteger size = [_collectionData count];
+        NSLog(@"CollectionData size: %lu", size);
+        [self.collectionView reloadData];
         NSLog(@"Item added to list.");
     }
     
@@ -87,7 +92,6 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-
 
     UICollectionViewCell *foodCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FoodCell" forIndexPath:indexPath];
 
