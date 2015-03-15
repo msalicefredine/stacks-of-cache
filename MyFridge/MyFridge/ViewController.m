@@ -58,7 +58,7 @@
     
     if (item != nil) {
         [self->_collectionData addObject:item];
-        //[self.collectionView reloadData];
+        // [self.collectionView reloadData];
         NSLog(@"Item added to list.");
 		
 		// I think we might have to do something with but I have no idea what
