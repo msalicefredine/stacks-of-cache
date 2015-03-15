@@ -17,16 +17,17 @@
 @implementation ViewController{
 
     NSMutableArray *_collectionData;
+    FoodObject *foodItem;
 
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //_listOfFood = [[NSMutableArray array] init];
     _collectionData = [[NSMutableArray array] init];
-    [self.collectionView reloadData];
-    self.collectionView.dataSource = _collectionData;
+    foodItem = [[FoodObject alloc] init];
+    //_listOfFood = [[NSMutableArray array] init];
+    //[self.collectionView reloadData];
+    //self.collectionView.dataSource = _collectionData;
     [self loadInitialData];
 }
 
@@ -37,16 +38,26 @@
 
 
 // fake data
-- (void)loadInitialData {
+- (void)loadFakeData {
     FoodObject *item1 = [[FoodObject alloc] init];
     item1.name = @"Brocolli";
     [self->_collectionData addObject:item1];
     FoodObject *item2 = [[FoodObject alloc] init];
     item2.name = @"Eggs";
     [self->_collectionData addObject:item2];
+
     //FoodObject *item3 = [[FoodObject alloc] init];
     //item3.name = @"Beets";
     //[self->_collectionData addObject:item3];
+}
+
+- (void)loadInitialData{
+    if (foodItem != nil) {
+        [self->_collectionData addObject:foodItem];
+    }
+    NSInteger size = [_collectionData count];
+    NSLog(@"CollectionData size: %lu", size);
+    NSLog(@"Item added to list.");
 }
 
 
@@ -54,17 +65,16 @@
     
     PickerViewController *source = [segue sourceViewController];
     
-    FoodObject *item = source.food;
+    FoodObject *item = [[FoodObject alloc] init];
+    item = source.food;
     NSLog(@"%@", item.name);
     NSLog(@"returning from segue");
     
     if (item != nil) {
-        [self->_collectionData addObject:item];
-        //FoodObject *testing = _collectionData.lastObject;
-        NSInteger size = [_collectionData count];
-        NSLog(@"CollectionData size: %lu", size);
-        [self.collectionView reloadData];
-        NSLog(@"Item added to list.");
+        //[self->_collectionData addObject:item];
+        foodItem = item;
+        [self loadInitialData];
+        //[self viewDidLoad];
     }
     
     else if (source.isSaved){

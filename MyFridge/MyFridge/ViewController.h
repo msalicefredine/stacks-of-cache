@@ -11,7 +11,7 @@
 @interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (strong, nonatomic)NSMutableArray *listOfFood;
-@property (nonatomic, retain) UICollectionView *collectionView;
+@property (nonatomic, retain) IBOutlet UICollectionView *collectionView;
 
 @end
 
