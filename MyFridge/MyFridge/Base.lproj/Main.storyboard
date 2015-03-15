@@ -79,6 +79,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="jso-vk-KZj" id="ejz-um-ZJM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="9Gj-q5-3q2"/>
@@ -123,15 +126,6 @@
                                     <outlet property="delegate" destination="JcQ-Ri-Y2E" id="amH-ea-HlJ"/>
                                 </connections>
                             </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Food Name..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eUP-Ps-gOq">
-                                <rect key="frame" x="21" y="285" width="559" height="30"/>
-                                <color key="backgroundColor" red="0.84092184520000002" green="1" blue="0.68921216399999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="JcQ-Ri-Y2E" id="b5k-uG-rjs"/>
-                                </connections>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Food Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4As-dm-3bK">
                                 <rect key="frame" x="21" y="116" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -156,6 +150,15 @@
                                 </items>
                                 <color key="tintColor" red="0.84092184520000002" green="1" blue="0.68921216399999996" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Food Name..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eUP-Ps-gOq">
+                                <rect key="frame" x="21" y="285" width="559" height="30"/>
+                                <color key="backgroundColor" red="0.84092184520000002" green="1" blue="0.68921216399999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="JcQ-Ri-Y2E" id="b5k-uG-rjs"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

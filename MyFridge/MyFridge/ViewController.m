@@ -58,8 +58,9 @@
     
     if (item != nil) {
         [self->_collectionData addObject:item];
-        //[self.collectionView reloadData];
+        [self.collectionView reloadData];
         NSLog(@"Item added to list.");
+        NSLog(@"Collection size is: %i", self->_collectionData.count);
     }
     
     else if (source.isSaved){
